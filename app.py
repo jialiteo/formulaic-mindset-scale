@@ -2,8 +2,6 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
-from datetime import datetime
 
 # Page configuration for a clean, academic look
 st.set_page_config(page_title="Formulaic Mindset Scale", page_icon="🧠", layout="centered")
@@ -79,9 +77,6 @@ st.write("---")
 
 # Scoring and Data Analysis Display
 if st.button("Calculate My Profile", type="primary"):
-    # Capture timestamp of response entry
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
     # Factor 1: Direct scoring
     user_f1 = sum([ui_responses[f"f1_{i}"] for i in range(len(factor1_items))])
     
@@ -160,27 +155,6 @@ if st.button("Calculate My Profile", type="primary"):
         trajectory_text = f"On average, your overall mindset score is **around average** as compared to our Singaporean sample. Your baseline cognitive style aligns closely with the central trends of the local university cohort, balancing structured methods with baseline adaptive problem-solving."
         
     st.success(trajectory_text)
-    
-    # --- DATA EXPORT PROCESSING ---
-    row_data = {
-        "Timestamp": [timestamp],
-        "Total_Score": [user_total],
-        "Factor1_Score": [user_f1],
-        "Factor2_Score": [user_f2]
-    }
-    for display_idx, item in enumerate(all_items):
-        key = f"f{item['factor']}_{item['index']}"
-        row_data[f"Q{display_idx + 1}_Raw"] = [ui_responses[key]]
-        
-    export_df = pd.DataFrame(row_data)
-    
-    st.write("")
-    st.download_button(
-        label="📥 Download My Scale Response Metadata (.csv)",
-        data=export_df.to_csv(index=False).encode('utf-8'),
-        file_name=f"FMS_Scale_Data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-        mime="text/csv"
-    )
     
     # --- NEW CLOSING REMARKS CALLOUT ---
     st.write("")
