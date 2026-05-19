@@ -6,9 +6,9 @@ import seaborn as sns
 # Page configuration for a clean, academic look
 st.set_page_config(page_title="Formulaic Mindset Scale", page_icon="🧠", layout="centered")
 
-st.title("🧠 Formulaic Mindset Assessment")
+st.title("🧠 Formulaic Mindset Scale")
 st.markdown("""
-Find out where you stand on the **Formulaic Mindset Scale (FMS-15)** compared to our research sample of university students ($N=196$).
+Find out where you stand on the **Formulaic Mindset Scale (FMS-15)** compared to our research sample of university students ($N=196$)!
 """)
 st.write("---")
 
