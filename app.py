@@ -148,11 +148,11 @@ if st.button("Calculate My Profile", type="primary"):
     # --- GLOBAL POSITIONING INTERPRETATION (Below the Graph) ---
     st.write("")
     if user_total > (total_mean + 0.5 * total_sd):
-        trajectory_text = f"On average, your overall mindset score is **above average** as compared to our Singaporean sample. This suggests a more pronounced preference for structure, external models, and methodical certainty than the average university peer."
+        trajectory_text = f"Overall, your formulaic mindset score is **above average** as compared to our Singaporean sample. This suggests a more pronounced preference for structure, external models, and methodical certainty than the average university peer."
     elif user_total < (total_mean - 0.5 * total_sd):
-        trajectory_text = f"On average, your overall mindset score is **below average** as compared to our Singaporean sample. This indicates you lean significantly more toward cognitive flexibility, organic exploration, and comfort with unscripted tasks than your typical peers."
+        trajectory_text = f"Overall, your formulaic mindset score is **below average** as compared to our Singaporean sample. This indicates you lean significantly more toward cognitive flexibility, organic exploration, and comfort with unscripted tasks than your typical peers."
     else:
-        trajectory_text = f"On average, your overall mindset score is **around average** as compared to our Singaporean sample. Your baseline cognitive style aligns closely with the central trends of the local university cohort, balancing structured methods with baseline adaptive problem-solving."
+        trajectory_text = f"Overall, your formulaic mindset score is **around average** as compared to our Singaporean sample. Your baseline cognitive style aligns closely with the central trends of the local university cohort, balancing structured methods with baseline adaptive problem-solving."
         
     st.success(trajectory_text)
     
